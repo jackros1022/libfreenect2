@@ -15,11 +15,13 @@ PROJECT(libfreenect2_examples)
 
 SET(MY_DIR ${libfreenect2_examples_SOURCE_DIR})
 SET(DEPENDS_DIR "${MY_DIR}/../depends" CACHE STRING "Dependency directory")
-SET(freenect2_DIR  /home/jack/freenect2/lib/cmake/freenect2/ )
 
+#-----添加路徑　和　MPI
+
+SET(freenect2_DIR  /home/jack/freenect2/lib/cmake/freenect2/ )
 SET(CMAKE_CXX_COMPILER mpicxx)
 include_directories(MPI_INCLUDE_PATH)
-
+#----
 OPTION(ENABLE_OPENGL "Enable OpenGL support" ON)
 
 
