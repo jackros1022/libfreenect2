@@ -260,7 +260,8 @@ struct ShaderProgram : public WithOpenGLBindings
     }
 };
 
-class Viewer : WithOpenGLBindings {
+class Viewer : WithOpenGLBindings 
+{
 private:
     bool shouldStop;
     GLFWwindow* window;

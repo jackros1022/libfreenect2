@@ -285,6 +285,7 @@ int main(int argc, char *argv[])
   }
   else
   {
+    //without providing a pipeline,then a default is used.
     dev = freenect2.openDevice(serial);
   }
 
@@ -308,7 +309,7 @@ int main(int argc, char *argv[])
     types |= libfreenect2::Frame::Color;
   if (enable_depth)
     types |= libfreenect2::Frame::Ir | libfreenect2::Frame::Depth;
-  libfreenect2::SyncMultiFrameListener listener(types);
+  libfreenect2::SyncMultiFrameListener listener(types); 
   libfreenect2::FrameMap frames;
 
   dev->setColorFrameListener(&listener);
@@ -353,6 +354,7 @@ int main(int argc, char *argv[])
       std::cout << "timeout!" << std::endl;
       return -1;
     }
+    // the frame data. You can feed it to OpenCV, PCL
     libfreenect2::Frame *rgb = frames[libfreenect2::Frame::Color];
     libfreenect2::Frame *ir = frames[libfreenect2::Frame::Ir];
     libfreenect2::Frame *depth = frames[libfreenect2::Frame::Depth];
